@@ -6,6 +6,7 @@ import PackageDescription
 let coreSources = ["mz","mz_os","mz_os_posix","mz_compat","mz_crypt","mz_strm","mz_strm_mem","mz_strm_buf","mz_strm_crypt","mz_strm_os_posix","mz_strm_zlib","mz_zip","mz_zip_rw","mz_strm_split"].map { "minizip/\($0).c" }
 let pkcryptSources = ["mz_strm_pkcrypt"].map { "minizip/\($0).c" }
 let appleWZAESSources = ["mz_strm_wzaes", "mz_crypt_apple"].map { "minizip/\($0).c" }
+let bzip2Sources = ["mz_strm_bzip"].map { "minizip/\($0).c" }
 
 let package = Package(
     name: "CMinizip",
@@ -13,7 +14,7 @@ let package = Package(
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(
             name: "CMinizip",
-            targets: ["CMinizip", "CMinizipPKCRYPT", "CMinizipAppleWZAES"]),
+            targets: ["CMinizip", "CMinizipPKCRYPT", "CMinizipAppleWZAES", "CMinizipBZIP2"]),
         .library(
             name: "CMinizipCore",
             targets: ["CMinizip"]),
@@ -23,6 +24,9 @@ let package = Package(
         .library(
             name: "CMinizipAppleWZAES",
             targets: ["CMinizipAppleWZAES"]),
+        .library(
+            name: "CMinizipBZIP2",
+            targets: ["CMinizipBZIP2"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -60,6 +64,15 @@ let package = Package(
             sources: appleWZAESSources,
             cSettings: [
                 .define("HAVE_WZAES")
+            ]),
+        .target(
+            name: "CMinizipBZIP2",
+            dependencies: [
+                .target(name: "CMinizip")
+            ],
+            sources: bzip2Sources,
+            cSettings: [
+                .define("HAVE_BZIP2")
             ]),
     ]
 )
