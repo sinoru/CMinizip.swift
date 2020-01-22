@@ -73,6 +73,9 @@ let package = Package(
             sources: bzip2Sources,
             cSettings: [
                 .define("HAVE_BZIP2")
+            ],
+            linkerSettings: [
+                .linkedLibrary("bz2")
             ]),
     ]
 )
