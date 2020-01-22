@@ -1,6 +1,5 @@
 #include "../minizip/mz.h"
 #include "../minizip/mz_os.h"
-#include "../minizip/mz_os_posix.h"
 #include "../minizip/mz_compat.h"
 #include "../minizip/mz_crypt.h"
 #include "../minizip/mz_strm.h"
