@@ -5,8 +5,6 @@
 #include "../minizip/mz_strm.h"
 #include "../minizip/mz_strm_mem.h"
 #include "../minizip/mz_strm_buf.h"
-#include "../minizip/mz_strm_crypt.h"
-#include "../minizip/mz_strm_os_posix.h"
 #include "../minizip/mz_strm_zlib.h"
 #include "../minizip/mz_zip.h"
 #include "../minizip/mz_zip_rw.h"
