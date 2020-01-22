@@ -1,1 +1,1 @@
-#include "../../../lib/minizip/mz_strm_pkcrypt.h"
+#include "../minizip/mz_strm_pkcrypt.h"
